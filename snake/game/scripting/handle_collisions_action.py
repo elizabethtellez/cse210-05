@@ -61,20 +61,25 @@ class HandleCollisionsAction(Action):
         
         for segment in segments:
             if head.get_position().equals(segment.get_position()):
-                break
+                self._is_game_over = True
 
 
     def _handle_snake_collision (self,cast):
        
        snake1 = cast.get_first_actor("snake1")
-       
+       segments1 = snake1.get_segments()[1:]
        head1 = snake1.get_segments()[0]
     
        snake2 = cast.get_first_actor("snake2")
        segments2 = snake2.get_segments()[1:]
+       head2 = snake2.get_segments()[0]
     
        for segment2 in segments2:
             if head1.get_position().equals(segment2.get_position()):      
+                self._is_game_over = True
+
+       for segment1 in segments1:
+            if head2.get_position().equals(segment1.get_position()):      
                 self._is_game_over = True
      
 
