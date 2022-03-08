@@ -38,10 +38,7 @@ class DrawActorsAction(Action):
         self._video_service.draw_actor(food)
         self._video_service.draw_actors(segments1)
         self._video_service.draw_actors(segments2)
-        print("el primero")
-        print(segments1)
-        print("el segundo")
-        print(segments2)
+        
         self._video_service.draw_actor(score)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()
